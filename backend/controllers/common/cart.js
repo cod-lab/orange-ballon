@@ -79,7 +79,7 @@ export const addProductToCartController = tryCatchUtility(async (req, res) => {
     let response;
 
     // checking if ids already exist in cart model
-    let existingIds = await cartModel.findOne({ user_id: user.userid, product_id: params.pid }, { _id: 1 }).lean();
+    const existingIds = await cartModel.findOne({ user_id: user.userid, product_id: params.pid }, { _id: 1 }).lean();
     // if(existingIds) throw new generateErrUtility('These Ids combination already exists!',409);
     if(!existingIds) {
     // else {
@@ -95,7 +95,7 @@ export const addProductToCartController = tryCatchUtility(async (req, res) => {
     // checking if product customization already exists in product customization model
     // body.id = response._id;
     // console.log(body);
-    let existingProductCustomization = await productCustomizationModel.findOne({ id: response._id, quantity: body.quantity, size: body.size, color: body.color }, { _id: 1 }).lean();
+    const existingProductCustomization = await productCustomizationModel.findOne({ id: response._id, quantity: body.quantity, size: body.size, color: body.color }, { _id: 1 }).lean();
     // let existingProductCustomization = await productCustomizationModel.count({ id: response._id, quantity: body.quantity, size: body.size, color: body.color }).lean();     // it will check all the docs and count the doc with satisfied query, so cant use this, bcz it is less efficient than findOne
     // let existingProductCustomization = await productCustomizationModel.findOne(body).lean();
     // console.log(existingProductCustomization);

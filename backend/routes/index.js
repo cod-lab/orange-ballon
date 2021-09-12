@@ -54,11 +54,12 @@ router.use('/images',express.static('images'));*/
 router.use('/',publicRoute);
 
 // for invalid urls
-router.all('*',(req) => { // , res, next) => {
+router.all('*', req => { // , res, next) => {
 // router.all(/[a-zA-Z0-9]+/,(req) => { // , res, next) => {
 // router.use(function(req) {
     // console.log('->',req.method);
-    throw new generateErrUtility(`Requested url: [${req.method}] ${req.headers.host + req.originalUrl} doesn't exist!`,404); // directly passing err to next middleware i.e. global err printer written below, without using 'next()'
+    throw new generateErrUtility(`Requested url: [${req.method}] ${req.headers.host + req.originalUrl} doesn't exist!`,404); // directly passing err to global err handler & printer written below, without using 'next(err)'
+    // directly passing err to next middleware i.e. global err printer written below, without using 'next()'
     // if we use 'async' then we hv to use 'next()' to pass err to next middleware
     // next(err);  // it'll call global err handler, if used 'next()' then it'll call next middleware
 });

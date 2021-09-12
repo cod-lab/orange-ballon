@@ -62,6 +62,7 @@ export const addReviewToProductController = tryCatchUtility(async (req, res) => 
 
     // if(typeof files !== 'undefined') {    // shud give true
     // if(files !== undefined) {    // shud give true
+    // checking if images also sent with review, then adding them into review body
     if(files) {    // shud give true
         newReview.review_images = [];
         files.review_images.forEach(img => newReview.review_images.push(img.path.replace(/\\/g,'/')));
@@ -95,10 +96,11 @@ export const editUserReviewController = tryCatchUtility(async (req, res) => {
     }
 
     // console.log('updates',updates);
-    delete updates.product_id;
+    delete updates.product_id;      // product_id was sent just to get the existing reviews of current user on this product
     // console.log('updates',updates);
 
     // if(files !== undefined) {
+    // checking if images also sent with review, then adding them into review body
     if(files) {
         updates.review_images = [];
         files.review_images.forEach(img => updates.review_images.push(img.path.replace(/\\/g,'/')));

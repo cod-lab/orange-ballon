@@ -24,6 +24,7 @@ export const verifyLoggerController = tryCatchUtility(async (req, res, next) => 
         // .catch(error => new generateErrUtility(error));
 
     // try {
+        // check email
         const response = await userModel.findOne({ email }).lean();     // extract all the user data from db
         // console.log(response);
     // } catch (error) {
@@ -33,12 +34,14 @@ export const verifyLoggerController = tryCatchUtility(async (req, res, next) => 
 
     // let isValidPass;
     // try {
+        // check password
         const isPassValid = await bcrypt.compare(password, response.password);
     // } catch (error) {
         // return next(error);     // handle await stmt(RHS)
     // }
     if(!isPassValid) throw new generateErrUtility('Invalid credentials!',401);     // handle isPassValid value(LHS)
 
+    // create token
     // console.log(process.env.SERVER_SECRET,typeof process.env.SERVER_SECRET);
     // console.log(Math.random() * 73478632587412567,typeof (Math.random() * 73478632587412567));
     // console.log(process.env.SERVER_SECRET + Math.random() * 73478632587412567,typeof (process.env.SERVER_SECRET + Math.random() * 73478632587412567));

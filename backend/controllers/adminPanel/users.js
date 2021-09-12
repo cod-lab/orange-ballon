@@ -62,7 +62,7 @@ export const addUserController =
 
     // const { body:newUser } = req;    // also creating shell copy
     // const newUser = JSON.parse(JSON.stringify(req.body));   // deep copying - it doesn't affect original object
-
+        // checking if email already exists
         const existingEmail = await userModel.findOne({ email: req.body.email }, { _id: 1 }).lean();
         if(existingEmail) throw new generateErrUtility('Email already exists!',409);
     // }
@@ -72,6 +72,8 @@ export const addUserController =
     const newUser = JSON.parse(JSON.stringify(req.body));   // deep copying - it doesn't affect original object
     // newUser.password = null;
     // console.log(newUser, req.body);
+
+    // encrypting password and adding it into user body
     delete newUser.password;
     // console.log(newUser, req.body);
     newUser.password = await bcrypt.hash(req.body.password, 10);       // encrypt given password
@@ -92,7 +94,7 @@ export const addUserController =
 
     // try {
 
-        // saving newly created object into db as a new user
+        // saving new user into user model
         const response = await userModel.create(newUser);
         // res.status(201).json(response);
         if(!response) throw new generateErrUtility('Something went wrong!\nPlease try again later...',500);
@@ -125,14 +127,17 @@ export const updateUserController = tryCatchUtility(async (req, res) => {
     // const { body:updates, params } = req; // creating shell copy only, effects original object
     const { params } = req;
 
+    // checking if email already exists
     if(req.body.email !== undefined) {
         const existingEmail = await userModel.findOne({ email: req.body.email, _id: { $nin: params.uid } }, { _id: 1 }).lean();
         if(existingEmail) throw new generateErrUtility('Email already exists!',409);
     }
     // console.log(existingEmail);
     // res.send(existingEmail);
+
     const updates = JSON.parse(JSON.stringify(req.body));   // deep copying - it doesn't affect original object
 
+    // encrypting password and adding it into user body
     if(updates.password !== undefined) {
         delete updates.password;
         updates.password = await bcrypt.hash(req.body.password, 10);       // encrypt given password
@@ -144,6 +149,7 @@ export const updateUserController = tryCatchUtility(async (req, res) => {
 
         // saving newly created object into db as an update to an existing user document
         // const response = await userModel.findByIdAndUpdate(id).exec();
+        // updating existing user in user model
         const response = await userModel.findByIdAndUpdate(params.uid, updates, { new: true }).lean();
         if(!response) throw new generateErrUtility('Unable to update user!\nPlease try again later...',500);
         // console.log(response);
@@ -194,6 +200,7 @@ export const deleteUsersController = tryCatchUtility(async(req, res) => {
             // forEach
         // })  }]});
         // let nullCount = 0;
+        // deleting all requested users(whose ids has been sent in []) one by one
         let deletedUsers = ids.length;
         // response.forEach(x => x ? '' /*nothing happens*/ : nullCount++ );
 

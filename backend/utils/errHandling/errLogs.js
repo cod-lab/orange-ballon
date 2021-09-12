@@ -12,7 +12,8 @@ import { config } from 'dotenv';
 
 if(config().error) console.log(config().error.message);
 
-const dbUrl = config().parsed.DB_CON;
+// const dbUrl = config().parsed.DB_CON;
+const { DB_CON:dbUrl } = process.env;
 
 export const errLogsUtility = createLogger({
     // level: 'error',

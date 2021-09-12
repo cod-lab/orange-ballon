@@ -1,25 +1,23 @@
 {
-  "name": "backend",
+  "name": "basic",
   "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "try": "nodemon --watch backend --exec node experimental-modules server.js",
-    "start": "nodemon --exec node experimental-modules server.js",
-    "start1": "nodemon server.js",
+    "start1": "nodemon --exec node experimental-modules server.js",
+    "start": "nodemon server.js",
     "start2": "nodemon --experimental-specifier-resolution=node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sandeep169/Klieder-House.git"
+    "url": "https://github.com/cod-lab/orange-ballon.git"
   },
-  "author": "",
+  "author": "cod-lab",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sandeep169/Klieder-House/issues"
-  },
-  "homepage": "https://github.com/sandeep169/Klieder-House#readme",
+  "bugs": "",
+  "homepage": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

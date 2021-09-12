@@ -10,6 +10,7 @@ export const getOrdersController = tryCatchUtility(async (req, res) => {
     if(!response) return res.send('No order placed yet!');
     res.status(200).json({ orders: response });*/
 
+    // find all orders under current user
     const order_ids = await orderModel.find({ user_id: req.user.userid }, { product_id: 1, order_no: 1 }).sort({ _id: -1 }).lean();
     if(!order_ids.length) return res.send('No order placed yet!');
     // console.log('order_ids',order_ids);
@@ -44,7 +45,10 @@ export const getOrdersController = tryCatchUtility(async (req, res) => {
     // console.log('\n1 order',order,typeof order);
     // let order_no;// = 1;
     // let nullCount = 0;
-    let [orders, order, order_no, idCount] = [[], undefined, undefined, order_ids.length];
+    // let [orders, order, order_no, idCount] = [[], undefined, undefined, order_ids.length];
+    const orders = [];
+    let order, order_no;
+    let idCount = order_ids.length;
     // for(let id of order_ids) {
     // for(let i = 0; i < order_ids.length; i++) {
     for(let i = order_ids.length; i>0;) {
@@ -61,6 +65,7 @@ export const getOrdersController = tryCatchUtility(async (req, res) => {
             order = new Order(order_no);
         } // console.log('\n1 order',order);
 
+        // find each order's details
         const response = await productCustomizationModel.find({ id: order_ids[i]._id }).sort({ createdAt: 1 }).lean();
         // console.log('\nresponse',response);
         if(response.length)
@@ -94,19 +99,25 @@ export const placeOrderController = tryCatchUtility(async (req, res) => {
     if(!cart_ids.length) return res.send('Cart is empty!');
     // console.log(cart_ids,cart_ids[0]._id,typeof cart_ids[0]._id);
 
-    // insert all cart products in order model
-    const { order_no:last_order_no } = await orderModel.findOne({ user_id: req.user.userid }, { order_no: 1, _id: 0 }).sort({ order_no: -1 }).lean() || { order_no: 0 };
+    // insert all cart products in order model  X
+    // get user's last order no.
+    const { order_no:last_order_no } = await orderModel.findOne({ user_id: req.user.userid }, { order_no: 1, _id: 0 })
+        .sort({ order_no: -1 }).lean() || { order_no: 0 };
     // console.log(last_order_no);
     // const current_order_no = last_order_no ? ++last_order_no : 0;
     // const current_order_no = last_order_no ? last_order_no+1 : 1;
     const current_order_no = last_order_no + 1;
+
     const ids = [];
     cart_ids.forEach(id => {
-        ids.push(id._id);
+        ids.push(id._id);       // getting cart model _ids to delete entries from cart model
+
+        // updating cart_ids[{},{}] to insert in order model
         delete id._id;
         id.order_no = current_order_no;
     });
     // console.log(cart_ids,ids);
+    // inserting ordered products into order model
     const response = await orderModel.insertMany(cart_ids); // .lean();
     if(!response.length) throw new generateErrUtility('Unable to place order at the moment!\nPlease try again later...',500);
     // console.log('response',response);
@@ -119,10 +130,12 @@ export const placeOrderController = tryCatchUtility(async (req, res) => {
     // ids.forEach(async id => {
     // for(let id of ids){
     for(let i=0; i<ids.length;) { // i++) {
+        // update 'id' from cart id to order id in product customization model
         const { nModified } = await productCustomizationModel.updateMany({ id: ids[i] }, { id: response[i]._id, order_status: "pending" }).lean();
         if(!nModified) throw new generateErrUtility(`Unable to update field 'id' in product customization model!`,500);
         // console.log('nModified',nModified);
 
+        // delete all cart products from cart model
         const { deletedCount } = await cartModel.deleteOne({ _id: ids[i++] }).lean();
         if(!deletedCount) throw new generateErrUtility('Unable to delete ids from cart model!',500);
     }

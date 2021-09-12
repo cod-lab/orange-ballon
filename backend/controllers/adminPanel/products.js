@@ -20,7 +20,8 @@ export const addProductController = tryCatchUtility(async (req, res) => {
     // if(req.files === '') res.status(201).send('null');
     // else res.status(201).send('not null');
 
-    // creating object of data of product
+    // creating object of data of product       X
+    // checking if product code already exists
     const existingCode = await productModel.findOne({ code: req.body.code }, { _id: 1 }).lean();
     if(existingCode) throw new generateErrUtility('Product code already exists!',409);
 
@@ -70,10 +71,12 @@ export const addProductController = tryCatchUtility(async (req, res) => {
     // console.log('newProduct',newProduct);
     // console.log(req);
 
-    // saving newly created object into db as a new product
+    // saving newly created object into db as a new product     X
+    // saving new product into product model
     const response = await productModel.create(newProduct);
     // console.log('response',response);
     if(!response) throw new generateErrUtility('Unable to add product!\nPlease try again later...',500);
+
     res.status(201).json({
         msg: 'Product added successfully!',
         product: response
@@ -84,10 +87,12 @@ export const addProductController = tryCatchUtility(async (req, res) => {
 export const updateProductController = tryCatchUtility(async (req, res) => {
     const { params } = req;
 
+    // checking if product code already exists
     if(req.body.code !== undefined) {
         const existingCode = await productModel.findOne({ code: req.body.code, _id: { $nin: params.pid } }, { _id: 1 }).lean();
         if(existingCode) throw new generateErrUtility('Product code already exists!',409);
     }
+
     const updates = JSON.parse(JSON.stringify(req.body));   // deep copying - it doesn't affect original object
 
     if(updates.product_sizes !== undefined)
@@ -95,6 +100,7 @@ export const updateProductController = tryCatchUtility(async (req, res) => {
     if(updates.product_colors !== undefined)
         updates.product_colors = updates.product_colors.split(',');
 
+    // checking if images also sent with product, then adding them into product body
     const { product_images } = req.files || {};
     if(product_images !== undefined) {
         updates.product_images = [];
@@ -104,8 +110,10 @@ export const updateProductController = tryCatchUtility(async (req, res) => {
     // const id = req.params.pid;
     // saving newly created object into db as an update to an existing product document
     // const response = await productModel.findByIdAndUpdate(id).exec();
+    // updating existing product in product model
     const response = await productModel.findByIdAndUpdate(params.pid, updates, { new: true }).lean();
     if(!response) throw new generateErrUtility('Unable to update product!\nPlease try again later...',500);
+
     res.status(200).json({
         msg: 'Product updated successfully!',
         updatedProduct: response
@@ -134,6 +142,7 @@ export const deleteProductsController = tryCatchUtility(async (req, res) => {
         else throw new generateErrUtility(`No product deleted!`,404);
     }*/
 
+    // deleting all requested products(whose ids has been sent in []) one by one
     let deletedProducts = ids.length;
     for(let id of ids) {
         const { deletedCount } = await productModel.deleteOne({ _id: id }).lean(); // || {};

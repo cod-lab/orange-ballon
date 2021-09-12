@@ -5,8 +5,8 @@ import cors from 'cors';
 import { config } from 'dotenv';
 // import multer from 'multer';
 
-import routes from './routes/index.js';
-import { errLogsUtility } from './utils/errHandling/errLogs.js';
+import routes from './backend/routes/index.js';
+import { errLogsUtility } from './backend/utils/errHandling/errLogs.js';
 
 if(config().error) errLogsUtility.error(config().error.message);
     // console.log("->",config().error.message,"\n");
@@ -23,8 +23,9 @@ app.use(cors());
 
 app.use('/',routes);
 
-const { HOST: host, DB_CON: dbUrl } = config().parsed;
-const port = config().parsed.PORT || 6000;
+// const { HOST: host, DB_CON: dbUrl } = config().parsed;
+// const port = config().parsed.PORT || 6000;
+const { HOST:host='localhost', PORT:port=6000, DB_CON:dbUrl } = process.env;
 
 mongoose.connect(
     dbUrl,
@@ -35,7 +36,9 @@ mongoose.connect(
     }
 ).then(() => {
     app.listen(port);
-    console.log(`Connection is established at http://${host}:${port}`);
-}).catch((err) => errLogsUtility.error(err.message));
+    // console.log(`Connection is established at http://${host}:${port}`);
+    console.log(`Connection is established at \nhttp://${host}:${port} OR \nhttp://orange-ballon.herokuapp.com/\n`);
+}).catch(err => errLogsUtility.error(err.message));
 
 mongoose.set('useFindAndModify',false);
+
