@@ -1,6 +1,6 @@
-# [orange-ballon](https://orange-ballon.herokuapp.com) &nbsp;<img src="backend/favicon.ico" width="23px" height="23px">
+# [Orange Ballon](https://orange-ballon.herokuapp.com) &nbsp;<img src="backend/favicon.ico" width="23px" height="23px">
 
-An E-commerce Api's provider App
+An E-Commerce Api's provider App
 
 <br>
 
