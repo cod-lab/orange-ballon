@@ -10,7 +10,19 @@ npm install jsonwebtoken = for generating token for authenticated user
 npm install --save multer = for uploading images
 
 
+npm install ejs serve-favicon
+npm i method-override   // to call delete method from form
+npm i dompurify jsdom   // dompurify will sanitize the html, jsdom renders html inside nodejs
+npm i marked slugify    // marked creates markdown and turn it into html, slugify converts any field to user friendly url
 
+// useless
+npm uninstall body-parser
+npm uninstall cors
+npm uninstall dompurify
+npm uninstall jsdom
+npm uninstall marked
+npm uninstall method-override
+npm uninstall slugify
 
 
 raw err msg with status code -> generateErrUtility -> printErrUtility -> client, errLogsUtility -> console, file, db

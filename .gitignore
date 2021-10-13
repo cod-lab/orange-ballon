@@ -30,6 +30,7 @@ yarn-error.log*
 *.jpg
 # *.txt
 error_logs
+# *.ini
 
 
 # it will exclude everything inside dir 'images' from ignoring (simply, these files wont be ignored)
@@ -53,3 +54,6 @@ error_logs
 updates.txt
 backend/new changes.txt
 
+!frontend/assets/**
+# frontend/assets/*.ini
+*.ini

@@ -20,15 +20,23 @@ export const verifyLoggerController = tryCatchUtility(async (req, res, next) => 
 
     // create token
     key = process.env.SERVER_SECRET + (Math.random() * 73478632587412567);
+    // console.log(res.locals);
+    // res.locals.token = jwt.sign(
     const token = jwt.sign(
         { userid: response._id, username: response.username, group: response.ownership },
         key,
         { expiresIn: "12h" }
     );
+    // if(!res.locals.token) throw new generateErrUtility('Something went wrong!\nPlease try again later...',500);
     if(!token) throw new generateErrUtility('Something went wrong!\nPlease try again later...',500);
 
-    req.userRole = response.ownership;
-    console.log({ token });
-    next();
+    // req.userRole = response.ownership;
+    // console.log({ token: res.locals.token });
+    // next();
+    res.status(200).json({
+        msg: `${response.username} logged in successfully!`,
+        user_group: response.ownership,
+        token
+    });
 });
 

@@ -32,6 +32,8 @@ router.use('/common',validateTokenUtility,commonRoute);
 
 router.use('/',publicRoute);
 
+// router.get('/docs', (_, res) => res.render('documentation'));
+
 // for invalid urls
 router.all('*', req => {
     throw new generateErrUtility(`Requested url: [${req.method}] ${req.headers.host + req.originalUrl} doesn't exist!`,404); // directly passing err to global err handler & printer written below, without using 'next(err)'

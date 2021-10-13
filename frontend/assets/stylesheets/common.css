@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    min-height: 100vh;
+}
+/* main img {
+    width: 50%;
+} */
+
+/* main img.c {
+    border: 1px solid;
+} */
+/* main .box { */
+    /* border: 1px solid; */
+    /* min-height: 50vh;
+    border-radius: 8px; */
+    /* background-color: black; */
+    /* width: 50%; */
+    /* background-color: #fefafb; */
+    /* box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+} */
+/* main .window hr { */
+    /* border-color: black; */
+/* } */
+/* main .box .toolbar {
+    background-color: #fefafb;
+    border-bottom: 1px solid rgb(211, 208, 208);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px; */
+    /* background-color: black; */
+    /* height: 5vh; */
+
+    /* justify-content: center; */
+    /* display: flex;
+    align-items: center;
+    padding: 12px; */
+    /* word-spacing: 2px; */
+    /* background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); */
+    /* background-image: linear-gradient(to right, rgb(253, 241, 243), white, rgb(240, 240, 240)); */
+/* } */
+/* main .box .toolbar .red-circle, main .box .toolbar .orange-circle, main .box .toolbar .green-circle { */
+/* main .box .toolbar .circle {
+    height: 10px;
+    width: 10px; */
+    /* background-color: #bbb; */
+    /* border-radius: 50%; */
+    /* border-radius: 5px; */
+    /* display: inline-block; */
+    /* line-height: 5vh; */
+    /* padding: 5px; */
+/* }
+main .box .toolbar .red {background-color: #ff5653;}
+main .box .toolbar .orange {background-color: #ffbe0e;}
+main .box .toolbar .green {background-color: #2ace35;}
+ */
+
+/* * { border: 1px solid; } */
+

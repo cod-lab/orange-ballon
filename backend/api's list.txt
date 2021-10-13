@@ -68,6 +68,7 @@ common (access to any login user and pass token with every request)
 
 
 public (acces to public, no need of any token)
+    GET: http://localhost:5000/products
     GET: http://localhost:5000/:pcode
     GET: http://localhost:5000/productrating/:pid
     GET: http://localhost:5000/productreviews/:pid

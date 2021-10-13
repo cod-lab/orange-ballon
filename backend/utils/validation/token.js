@@ -7,11 +7,14 @@ import { key } from "../../controllers/login.js";
 import { generateErrUtility } from '../../utils/errHandling/generateErr.js';
 
 export const validateTokenUtility = (req, res, next) => {   // check token validity
-    const { authorization } = req.headers;
+    // const { authorization } = req.headers;
+    const { headers:{ authorization }, originalUrl:url } = req;
     if(authorization === undefined) {
-        const { originalUrl:url } = req;
-        if(url === '/' || url === '/home') return next();
-        if(url === '/favicon.ico') return;
+        // const { originalUrl:url } = req;
+        // if(url === '/' || url === '/home') return next();
+        const home = /^\/(home)*$/;        // url shud be '/' or '/home' only
+        if(home.test(url)) return next();
+        // if(url === '/favicon.ico') return;
         throw new generateErrUtility('Unauthorized!',401);
     }
 

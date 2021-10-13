@@ -1,0 +1,428 @@
+db.docs.insertOne({division:"auth", module:"signup", host:"https://orange-ballon.herokuapp.com",api:"host/signup",method:"post",headers:"Content-Type: application/json",body:"username, email, password",ver:"1.0"})
+
+db.docs.insertMany([
+    // auth
+    {
+        division: "auth",
+        module: "signup",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/signup",
+        method: "post",
+        headers: "Content-Type: application/json",
+        params: "-",
+        token: "-",
+        body: { username*: "fooi", email*: "fooi@1.com", password*: "12345678", phone: "0123456789", gender: "M", age: 20, ownership: "admin" },
+        ver: "1.0",
+        route: "signup"
+    },
+    {
+        division: "auth",
+        module: "login",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/login",
+        method: "post",
+        headers: "Content-Type: application/json",
+        params: "-",
+        token: "-",
+        body: { email: "fooi@1.com", password: "12345678" },
+        ver: "1.0",
+        route: "login"
+    },
+
+    // admin panel
+    {
+        division: "admin panel",
+        module: "admin panel",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/adminpanel",
+        method: "get",
+        headers: "-",
+        params: "-",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "adminpanel"
+    },
+
+    // admin panel - users
+    {
+        division: "admin panel - users",
+        module: "users",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/adminpanel/users",
+        method: "get",
+        headers: "-",
+        params: "-",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "adminpanel/users"
+    },
+    {
+        division: "admin panel - users",
+        module: "add user",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/adminpanel/users/adduser",
+        method: "post",
+        headers: "Content-Type: application/json",
+        params: "-",
+        token: "required",
+        body: { username*: "fooi", email*: "fooi@1.com", password*: "12345678", phone: "0123456789", gender: "M", age: 20, ownership: "admin" },
+        ver: "1.0",
+        route: "adminpanel/users/adduser"
+    },
+    {
+        division: "admin panel - users",
+        module: "update user",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/adminpanel/users/updateuser/:uid",
+        method: "put",
+        headers: "Content-Type: application/json",
+        params: "uid",
+        token: "required",
+        body: { username: "fooi", email: "fooi@1.com", password: "12345678", phone: "0123456789", gender: "M", age: 20, ownership: "admin" },
+        ver: "1.0",
+        route: "adminpanel/users/updateuser/60c4ba2024d2d44414f146d2"
+    },
+    {
+        division: "admin panel - users",
+        module: "delete users",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/adminpanel/users/deleteusers",
+        method: "delete",
+        headers: "Content-Type: application/json",
+        params: "-",
+        token: "required",
+        body: { ids: ["60ec4b25af71f450d0f8a41f","60ec4b4aaf71f450d0f8a421","60ec4b62af71f450d0f8a422"] },
+        ver: "1.0",
+        route: "adminpanel/users/deleteusers"
+    },
+
+    // admin panel - products
+    {
+        division: "admin panel - products",
+        module: "products",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/adminpanel/products",
+        method: "get",
+        headers: "-",
+        params: "-",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "adminpanel/products"
+    },
+    {
+        division: "admin panel - products",
+        module: "add product",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/adminpanel/products/addproduct",
+        method: "post",
+        headers: "Content-Type: multipart/form-data",
+        params: "-",
+        token: "required",
+        body: { product_name*: "tee", code*: "nike-0", price*: 456, product_sizes*: "S,M,L", product_colors*: "red,green,blue", product_gender*: "F", product_images: "1product.jpg, 2product.jpg", brand: "nike", category: "topwear", subCategory: "casual", subSubCategory: "tshirt", stock: "40", rating: "4" },
+        ver: "1.0",
+        route: "adminpanel/products/addproduct"
+    },
+    {
+        division: "admin panel - products",
+        module: "update product",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/adminpanel/products/updateproduct/:pid",
+        method: "put",
+        headers: "Content-Type: multipart/form-data",
+        params: "pid",
+        token: "required",
+        body: { product_name: "tee", code: "nike-0", price: 456, product_sizes: "S,M,L", product_colors: "red,green,blue", product_gender: "F", product_images: "1product.jpg, 2product.jpg", brand: "nike", category: "topwear", subCategory: "casual", subSubCategory: "tshirt", stock: "40", rating: "4" },
+        ver: "1.0",
+        route: "adminpanel/products/updateproduct/60c4ba2024d2d44414f146d2"
+    },
+    {
+        division: "admin panel - products",
+        module: "delete products",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/adminpanel/products/deleteproducts",
+        method: "delete",
+        headers: "Content-Type: application/json",
+        params: "-",
+        token: "required",
+        body: { ids: ["60ec66828d24773e0c6434b2", "60ec657b1367e50700f682a7","60ec6536d97acc43cc012c98"] },
+        ver: "1.0",
+        route: "adminpanel/products/deleteproducts"
+    },
+
+    // user profile
+    {
+        division: "profile",
+        module: "profile",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/profile",
+        method: "get",
+        headers: "-",
+        params: "-",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "profile"
+    },
+    {
+        division: "profile",
+        module: "update profile",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/profile/updateprofile",
+        method: "put",
+        headers: "Content-Type: application/json",
+        params: "-",
+        token: "required",
+        body: { username: "fooi", email: "fooi@1.com", password: "12345678", phone: "0123456789", gender: "M", age: 20 },
+        ver: "1.0",
+        route: "profile/updateprofile"
+    },
+    {
+        division: "profile",
+        module: "delete profile",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/profile/deleteprofile",
+        method: "delete",
+        headers: "-",
+        params: "-",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "profile/deleteprofile"
+    },
+
+    // common operations - cart
+    {
+        division: "common - cart",
+        module: "cart",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/cart",
+        method: "get",
+        headers: "-",
+        params: "-",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "common/cart"
+    },
+    {
+        division: "common - cart",
+        module: "add product to cart",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/cart/addproducttocart/:pid",
+        method: "post",
+        headers: "Content-Type: application/json",
+        params: "pid",
+        token: "required",
+        body: { quantity*: 1, size*: "S", color*: "grey" },
+        ver: "1.0",
+        route: "common/cart/addproducttocart/60d64a21537bdc1f783f1010"
+    },
+    {
+        division: "common - cart",
+        module: "edit cart product",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/cart/editcartproduct/:pcid",
+        method: "put",
+        headers: "Content-Type: application/json",
+        params: "pcid",
+        token: "required",
+        body: { quantity: 1, size: "S", color: "grey" },
+        ver: "1.0",
+        route: "common/cart/editcartproduct/60eeda5b072f4d40d0d34382"
+    },
+    {
+        division: "common - cart",
+        module: "delete cart products",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/cart/deletecartproduct/:pcid",
+        method: "delete",
+        headers: "-",
+        params: "pcid",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "common/cart/deletecartproduct/60eeda5b072f4d40d0d34382"
+    },
+
+    // common operations - orders
+    {
+        division: "common - orders",
+        module: "orders",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/orders",
+        method: "get",
+        headers: "-",
+        params: "-",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "common/orders"
+    },
+    {
+        division: "common - orders",
+        module: "place order",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/orders/placeorder",
+        method: "post",
+        headers: "Content-Type: application/json",
+        params: "-",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "common/orders/placeorder"
+    },
+
+    // common operations - returns
+    {
+        division: "common - returns",
+        module: "returns",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/returns",
+        method: "get",
+        headers: "-",
+        params: "-",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "common/returns"
+    },
+    {
+        division: "common - returns",
+        module: "return product",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/returns/returnproduct/:pcid",
+        method: "post",
+        headers: "Content-Type: application/json",
+        params: "pcid",
+        token: "required",
+        body: { reason*: "unfit", return_status: "approved" },
+        ver: "1.0",
+        route: "common/returns/returnproduct/60e96bbd197f5b1c5c68462c"
+    },
+
+    // common operations - reviews
+    {
+        division: "common - reviews",
+        module: "add review",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/reviews/addreview/:pid",
+        method: "post",
+        headers: "Content-Type: multipart/form-data",
+        params: "pid",
+        token: "required",
+        body: { title: "cmt4", comment: "comment4", review_images: "1review.jpg, 2review.jpg", rating: 1 },
+        ver: "1.0",
+        route: "common/reviews/addreview/60e96bcf197f5b1c5c68462e"
+    },
+    {
+        division: "common - reviews",
+        module: "edit review",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/reviews/editreview/:rid",
+        method: "put",
+        headers: "Content-Type: multipart/form-data",
+        params: "rid",
+        token: "required",
+        body: { title: "cmt4", comment: "comment4", review_images: "1review.jpg, 2review.jpg", rating: 3, product_id*: "60e96bcf197f5b1c5c68462e" },
+        ver: "1.0",
+        route: "common/reviews/editreview/60f21247c4a6b14a60f1cec9"
+    },
+    {
+        division: "common - reviews",
+        module: "delete review",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/common/reviews/deletereview/:rid",
+        method: "delete",
+        headers: "-",
+        params: "rid",
+        token: "required",
+        body: "-",
+        ver: "1.0",
+        route: "common/reviews/deletereview/60f21247c4a6b14a60f1cec9"
+    },
+
+    // public
+    {
+        division: "public",
+        module: "products",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/products",
+        method: "get",
+        headers: "-",
+        params: "-",
+        token: "-",
+        body: "-",
+        ver: "1.0",
+        route: "products"
+    },
+    {
+        division: "public",
+        module: "product",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/:pcode",
+        method: "get",
+        headers: "-",
+        params: "pcode",
+        token: "-",
+        body: "-",
+        ver: "1.0",
+        route: "nike-0"
+    },
+    {
+        division: "public",
+        module: "product rating",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/productrating/:pid",
+        method: "get",
+        headers: "-",
+        params: "pid",
+        token: "-",
+        body: "-",
+        ver: "1.0",
+        route: "productrating/60c4ba2024d2d44414f146d2"
+    },
+    {
+        division: "public",
+        module: "product reviews",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/productreviews/:pid",
+        method: "get",
+        headers: "-",
+        params: "pid",
+        token: "-",
+        body: "-",
+        ver: "1.0",
+        route: "productreviews/60c4ba2024d2d44414f146d2"
+    },
+    {
+        division: "public - image",
+        module: "product image",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/images/products/:image_name",
+        method: "get",
+        headers: "-",
+        params: "image_name",
+        token: "-",
+        body: "-",
+        ver: "1.0",
+        route: "images/products/product1.jpg"
+    },
+    {
+        division: "public - image",
+        module: "review image",
+        host: "https://orange-ballon.herokuapp.com",
+        api: "host/images/reviews/:image_name",
+        method: "get",
+        headers: "-",
+        params: "image_name",
+        token: "-",
+        body: "-",
+        ver: "1.0",
+        route: "images/reviews/review1.jpg"
+    },
+
+])
+

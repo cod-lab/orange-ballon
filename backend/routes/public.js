@@ -1,12 +1,16 @@
 import express from 'express';
 
-import { getProductApi, getProductRatingApi, getProductReviewsApi } from '../controllers/api.js';
+import { getProductsApi, getProductApi, getProductRatingApi, getProductReviewsApi, getDocumentationApi } from '../controllers/api.js';
 
 const router = express.Router();
 
 router
+    // view all products as guest
+    .get('/products',getProductsApi)
+
     // view any particular product as guest
     .get('/:pcode([a-z0-9_-]{6,15})',getProductApi)
+    // .get('/:pcode((?!documentation)[a-z0-9_-]{6,15})',getProductApi)     // it wont include word 'documentation'
 
     // get product consolidated rating
     .get('/productrating/:pid',getProductRatingApi)
@@ -15,8 +19,12 @@ router
     .get('/productreviews/:pid',getProductReviewsApi)
 
     // get access to dir 'images'
-    .use('/images',express.static('images'));
-    // eg. http://localhost:5000/images/reviews/72663621[4]_2021-06-26_T11-53-38.801Z.png
+    // .use('/images',express.static('images'))
+    .use('/images',express.static('backend/images'))
+    // eg. http://localhost:5000/images/products/product1.jpg
+
+    // get each api's document
+    .get('/docs',getDocumentationApi);
 
 export default router;
 

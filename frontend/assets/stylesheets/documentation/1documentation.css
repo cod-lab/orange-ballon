@@ -1,0 +1,12 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo img {
+    width: 25px;
+}
+main img {
+    width: 50%;
+}
+

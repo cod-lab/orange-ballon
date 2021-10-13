@@ -21,7 +21,7 @@ import { getProductReviewsController, addReviewToProductController, editUserRevi
 
 
 // public fns
-import { getProductController, getProductRatingController } from './public.js';
+import { getProductController, getProductRatingController, getDocumentationController } from './public.js';
 
 
 
@@ -82,4 +82,5 @@ export const deleteUserReviewApi = deleteUserReviewController;
 // public
 export const getProductApi = getProductController;
 export const getProductRatingApi = getProductRatingController;
+export const getDocumentationApi = getDocumentationController;
 

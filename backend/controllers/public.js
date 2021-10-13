@@ -1,5 +1,6 @@
 import productModel from '../models/product.js';
 import reviewsModel from '../models/review.js';
+import docModel from '../models/documentation.js';
 
 import { tryCatchUtility } from '../utils/errHandling/tryCatch.js';
 import { generateErrUtility } from '../utils/errHandling/generateErr.js';
@@ -25,5 +26,11 @@ export const getProductRatingController = tryCatchUtility(async (req, res) => {
         (computedRating > storedRating ? computedRating : storedRating).toFixed(2) :
         computedRating.toFixed(2)
     });
+});
+
+export const getDocumentationController = tryCatchUtility(async (req, res) => {
+    const response = await docModel.find().lean();
+    // console.log(response);
+    res.status(200).render('documentation', { documentation: response.length ? response : 'No document found!' });
 });
 

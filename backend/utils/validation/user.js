@@ -5,14 +5,17 @@ import { getAdminHomeApi, getUserHomeApi, getGuestHomeApi } from '../../controll
 import { generateErrUtility } from '../../utils/errHandling/generateErr.js';
 
 function filter_user(req, res, next, senior, junior, final) {
-    const { user: { group } = {}, userRole:role } = req;
-    const access = group || role;
+    // const { user:{ group }={}, userRole:role } = req;
+    const { user:{ group }={} } = req;
+    // const access = group || role;
 
-    function err(msg,code){ throw new generateErrUtility(msg,code); }
+    function err(msg,code) { throw new generateErrUtility(msg,code); }
 
-    if(access !== undefined)
+    // if(access !== undefined)
+    if(group !== undefined)
         return(
-            access === 'admin' ?
+            // access === 'admin' ?
+            group === 'admin' ?
             (typeof senior === 'function' ? senior(req, res) : next()) :
             (typeof junior === 'function' ? junior(req, res) : err('Forbidden!',403))
         );
@@ -22,9 +25,9 @@ function filter_user(req, res, next, senior, junior, final) {
 export const validateUserUtility = (req, res, next) => {
     const { originalUrl:url } = req;
 
-    const login = /^\/login$/;        // string can be '/login' only
-    if(login.test(url))
-        return filter_user(req,res,next,getAdminHomeApi,getUserHomeApi);
+    // const login = /^\/login$/;        // string can be '/login' only
+    // if(login.test(url))
+        // return filter_user(req,res,next,getAdminHomeApi,getUserHomeApi);
 
     const home = /^\/(home)*$/;        // string can be '/' or '/home' only
     if(home.test(url))
