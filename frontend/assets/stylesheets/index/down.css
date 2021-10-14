@@ -1,32 +1,10 @@
-/* .down { */
-    /* min-height: 300vh; */
-    /* text-align: center; */
-    /* padding: 10%;
-    padding-top: 7%; */
-    /* color: brown; */
-    /* background-color: white; */
-    /* background-image: url("/graphics/backgrounds/down/d.jpg"); */
-    /* background-size: 100%;      set background width to 100% of container
-    background-repeat: no-repeat; */
-
-/* } */
-
 .down p {
-    /* font-size: 17px; */
     letter-spacing: 1px;
     line-height: 1.7;
 }
 
 
-/* div.info2, div.info2 div { border: 1px solid;} */
 .down .part1 {
-    /* min-height: 125vh; */
-    /* grid-template-columns: repeat(2, 3fr, 2fr); */
-    /* grid-template-columns: repeat(5, 1fr); */
-    /* z-index: -99; */
-    /* justify-content: center;
-    align-items: center; */
-    /* text-align: center; */
     background-image: url("/graphics/backgrounds/index/down/d.jpg");
     background-size: 100%;      /* set background width to 100% of container */
     background-repeat: no-repeat;
@@ -39,17 +17,7 @@
 }
 .down .part1 img {
     width: 80%;
-    /* grid-column: 1/5; */
-    /* z-index: -99; */
-    /* height: 60%; */
-    /* left: -50vh; */
-    /* text-align: center; */
-    /* float: center; */
-    /* justify-content: center; */
-    /* border-radius: 10px; */
     border-radius: 50%;
-    /* background-position: center center; */
-    /* margin: auto; */
 }
 
 
@@ -58,14 +26,9 @@
     padding: 7%;
     padding-left: 10%;
     padding-bottom: 9%;
-    /* margin: auto; */
 }
 .down .part2 .cell1 {
     padding: 3%;
-    /* border: 1px solid brown; */
-    /* border-radius: 5px; */
-    /* background-color: black; */
-    /* width: 50%; */
     font-size: 22px;
 }
 .down .part2 .cell1 .content {
@@ -73,53 +36,24 @@
     color: brown;
 }
 
-/* .down .info2 .cell2, .down .info2 .cell3 { */
-    /* text-align: center; */
-    /* margin: auto; */
-/* } */
-/* .down .info2 .cell2 { border-left: 1px solid #b9b9b9; } */
-/* .down .info2 .cell3 { border-right: 1px solid #b9b9b9; } */
 .down .part2 .cell2::before {
-    /* content: "";
-    position: absolute; */
-    /* height: 70%; */
     height: 65%;
-    /* width: 1px; */
-    /* left: 50%; */
-    /* top: 15%; */
-    /* transform: translate(-50%); */
-    /* background-color: #b9b9b9; */
 }
 .down .part2 .cell3::before {
-    /* content: "";
-    position: absolute; */
-    /* height: 73%; */
     height: 70%;
-    /* width: 0.5px; */
     left: 100%;
-    /* top: 15%; */
-    /* transform: translate(50%); */
-    /* background-color: #b9b9b9; */
 }
 .down .part2 .cell2::before, .down .part2 .cell3::before {
     content: "";
     position: absolute;
-    /* height: 70%; */
     width: 0.5px;
     top: 15%;
     background-color: #b9b9b9;
 }
 .down .part2 .cell2 .content, .down .part2 .cell3 .content {
     text-align: center;
-    /* text-transform: uppercase; */
-    /* width: calc(fit-content + 10px); */
-    /* width: 60%; */
-    /* height: 100%; */
     margin: auto;   /* set current div to center */
-    /* background-color: whitesmoke; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    /* padding: 5px; */
-    /* color: green; */
 }
 .down .part2 .cell2 .content {
     width: 60%;
@@ -133,58 +67,34 @@
 }
 .down .part2 .cell2 .content:hover, .down .part2 .cell3 .content:hover  {
     color: white;
-    /* background-color: #1f993b; */
     transition: 0.4s;
 }
 .down .part2 .cell2 .content:hover {
     background-color: #1f993b;
 }
 .down .part2 .cell3 .content:hover {
-    /* color: white; */
     background-color: #ffc107;
-    /* transition: 0.4s; */
 }
 .down .part2 .cell2 .content img, .down .part2 .cell3 .content img {
     width: 15%;
 }
-/* .down .info2 .cell2 .content img {
-    width: 16%;
-} */
 .down .part2 .cell2 .content:hover img {
     filter: brightness(0) invert(1);
     transition: 0.3s;
 }
 .down .part2 .cell3 .content:hover img {
     filter: brightness(0) invert(1);
-    /* transition: 0.3s; */
 }
 .down .part2 .cell2 .content p, .down .part2 .cell3 .content p {
     padding: 5%;
 }
 
 .down .part2 .cell4 {
-    /* text-align: center; */
     justify-content: center;
     display: flex;
     align-items: center;
-    /* border: 1px solid; */
 }
 .down .part2 .cell4 img {
-    /* border-radius: 20px; */
-    /* padding-left: 35%; */
     width: 90%;
-    /* border: 1px solid; */
-    /* line-height: 50%; */
 }
-
-
-/* .part2:last-child(even) { border: 1px solid;} */
-/* .down .info3 {
-    text-align: center;
-    padding: 8%;
-}
-.down .info3 img {
-    width: 70%; */
-    /* height: 20%; */
-/* } */
 

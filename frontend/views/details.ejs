@@ -1,330 +1,96 @@
 <section class="details">
     <h1 class="module">documentation</h1>
     <h4 class="ver">version 1.0</h4>
-    <!-- <div class="main-heading">
-        <div class="col-3 module"><h1>documentation</h1></div>
-        <div class="col-6 ver"><h3>ver 1.0</h3></div>
-    </div> -->
     <p><em>&nbsp;Everything you need to know about Orange-Ballon E-Commerce Apis.</em></p>
-    <!-- <center> -->
-        <!-- <h1>API'S</h1> -->
-        <!-- <br><br> -->
-        <div class="container-fluid abbreviations">
-            <div class="heading">abbreviations</div>
-            <!-- <ul type="none">
-                <li>uid = user_id</li>
-                <li>pid = product_id</li>
-                <li>cpid = cart_product_id</li>
-                <li>oid = order_id</li>
-                <li>rnid = return_id</li>
-                <li>pcid = productCustomization_id</li>
-                <li>rid = review_id</li>
-                <li>pcode = product_code saved in db 'product' as field 'code'</li>
-            </ul> -->
-            <!-- <table> -->
-                <!-- <tr><th colspan="3">abbreviations</th></tr> -->
-                <!-- <tr>
-                    <td>uid</td>
-                    <td>=</td>
-                    <td>user_id</td>
-                </tr>
-                <tr>
-                    <td>pid</td>
-                    <td>=</td>
-                    <td>product_id</td>
-                </tr>
-                <tr>
-                    <td>cpid</td>
-                    <td>=</td>
-                    <td>cart_product_id</td>
-                </tr>
-                <tr>
-                    <td>oid</td>
-                    <td>=</td>
-                    <td>order_id</td>
-                </tr>
-                <tr>
-                    <td>rnid</td>
-                    <td>=</td>
-                    <td>return_id</td>
-                </tr>
-                <tr>
-                    <td>pcid</td>
-                    <td>=</td>
-                    <td>productCustomization_id</td>
-                </tr>
-                <tr>
-                    <td>rid</td>
-                    <td>=</td>
-                    <td>review_id</td>
-                </tr>
-                <tr>
-                    <td>pcode</td>
-                    <td>=</td>
-                    <td>product_code saved in db 'product' as field 'code'</td>
-                </tr>
-            </table> -->
+
+    <div class="container-fluid abbreviations">
+        <div class="heading">abbreviations</div>
+        <div class="row">
+            <div class="col-2">
+                <ul type="none">
+                    <li class="type">params</li>
+                    <li>uid</li>
+                    <li>pid</li>
+                    <li>cpid</li>
+                    <li>oid</li>
+                    <li>rnid</li>
+                    <li>pcid</li>
+                    <li>rid</li>
+                    <li>pcode</li>
+                </ul>
+            </div>
+            <div class="col-5">
+                <ul type="none">
+                    <br>
+                    <li>user_id</li>
+                    <li>product_id</li>
+                    <li>cart_product_id</li>
+                    <li>order_id</li>
+                    <li>return_id</li>
+                    <li>productCustomization_id</li>
+                    <li>review_id</li>
+                    <li>product_code saved in db 'product' as field 'code'</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid docs">
+        <% if(Array.isArray(documentation)) { documentation.forEach(document => { %>
             <div class="row">
-                <div class="col-2">
-                    <ul type="none">
-                        <li class="type">params</li>
-                        <li>uid</li>
-                        <li>pid</li>
-                        <li>cpid</li>
-                        <li>oid</li>
-                        <li>rnid</li>
-                        <li>pcid</li>
-                        <li>rid</li>
-                        <li>pcode</li>
-                    </ul>
-                </div>
-                <!-- <div class="col-2">
-                    <ul type="none">
-                        <li>=</li>
-                        <li>=</li>
-                        <li>=</li>
-                        <li>=</li>
-                        <li>=</li>
-                        <li>=</li>
-                        <li>=</li>
-                        <li>=</li>
-                    </ul>
-                </div> -->
-                <div class="col-5">
-                    <ul type="none">
-                        <!-- <li>known for</li> -->
-                        <br>
-                        <li>user_id</li>
-                        <li>product_id</li>
-                        <li>cart_product_id</li>
-                        <li>order_id</li>
-                        <li>return_id</li>
-                        <li>productCustomization_id</li>
-                        <li>review_id</li>
-                        <li>product_code saved in db 'product' as field 'code'</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- <br><br> -->
 
-        <div class="container-fluid docs">
-            <% if(Array.isArray(documentation)) { documentation.forEach(document => { %>
-            <!-- <% // if(typeof documentation !== 'string') { documentation.forEach(document => { %>   this is also correct -->
-                <div class="row">
-
-                    <div class="col-6 api">
-                        <!-- <div class="division">auth</div> -->
-                        <div class="division"><%= document.division %></div>
-                        <div class="components">
-                            <!-- <div class="col-3">
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-
-                            </div>
-                            <div class="col-9">
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                </br>
-
-                            </div> -->
-                            <table>
-                                <!-- loop -->
-                                <!-- <tr>
-                                    <td>module</td> -->
-                                    <!-- <td><label class="emphasize">Signup</label></td> -->
-                                    <!-- <td><label class="emphasize"><%= document.module %></label></td>
-                                </tr>
-                                <tr>
-                                    <td>host</td> -->
-                                    <!-- <td>https://orange-ballon.herokuapp.com</td> -->
-                                    <!-- <td><%= document.host %></td>
-                                </tr>
-                                <tr>
-                                    <td>api</td> -->
-                                    <!-- <td>host/signup</td> -->
-                                    <!-- <td><%= document.api %></td>
-                                </tr>
-                                <tr>
-                                    <td>method</td> -->
-                                    <!-- <td><label class="emphasize">POST</label></td> -->
-                                    <!-- <td><label class="emphasize"><%= document.method %></label></td>
-                                </tr>
-                                <tr>
-                                    <td>headers</td> -->
-                                    <!-- <td>Content-Type: application/json</td> -->
-                                    <!-- <td><%= document.headers %></td>
-                                </tr>
-                                <tr>
-                                    <td>params</td> -->
-                                    <!-- <td>-</td> -->
-                                    <!-- <td><%= document.params %></td>
-                                </tr>
-                                <tr>
-                                    <td>token</td> -->
-                                    <!-- <td>-</td> -->
-                                    <!-- <td><%= document.token %></td>
-                                </tr>
-                                <tr>
-                                    <td>body</td> -->
-                                    <!-- <td>username, email, password</td> -->
-                                    <!-- <td><%= // document.body %></td> -->
-                                    <!-- <td>
-                                        <% // const bodyKeys = Object.keys(document.body); /* const x = bodyKeys.filter(key => key + "-"); */ const bodyLen = bodyKeys.length; for (let i=0; i<bodyLen;) { %> -->
-                                            <%= // i<bodyLen-1 ? bodyKeys[i]+', ' : bodyKeys[i] %>
-                                            <%= // document.body[bodyKeys[i++]] %><%= // i!==bodyKeys.length ? ',' : '' %>
-                                            <!-- <%= // bodyKeys[i++] %><%= // i<bodyLen ? ',' : '' %>
-                                        <% // } %>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>ver</td> -->
-                                    <!-- <td>1.0</td> -->
-                                    <!-- <td><%= document.ver %></td>
-                                </tr> -->
-                                <% let bodyKeys, bodyLen; const components = Object.keys(document); components.forEach(component => { if(component !== '_id' && component !== 'division' && component !== 'route') { %>
-                                    <% if(component === 'module' || component === 'method') { %>
-                                        <tr>
-                                            <td><%= component %></td>
-                                            <td><label class="emphasize-<%= component %>"><%= document[component] %></label></td>
-                                        </tr>
-                                    <% } else if(component === 'body') { %>
-                                        <tr>
-                                            <td><%= component %></td>
-                                            <td>
-                                                <% if(document[component] !== '-') { bodyKeys = Object.keys(document[component]); bodyLen = bodyKeys.length; for (let i=0; i<bodyLen;) { %>
-                                                    <%= bodyKeys[i++] %><%= i<bodyLen ? ',' : '' %>
-                                                <% } } else { %><%= document[component] %><% } %>
-                                            </td>
-                                        </tr>
-                                    <% } else { %>
-                                        <tr>
-                                            <td><%= component %></td>
-                                            <td><%= document[component] %></td>
-                                        </tr>
-                                    <% } %>
-                                <% } }); %>
-                            </table>
-                            <!-- <ul type="none" class="format">
-                                <li>Method: POST</li>
-                                <li>https://orange-ballon.herokuapp.com/signup</li>
-                                <li>Content-Type: application/json</li>
-                                <li>{</li>
-                                    <ul type="none">
-                                        <li>"username": "fooi",</li>
-                                        <li>"email": "fooi@1.com",</li>
-                                        <li>"password": "12345678"</li>
-                                    </ul>
-                                <li>}</li>
-                                <li>Ver: 1.0</li>
-                            </ul> -->
-                            <!-- <ul type="none" class="format"> -->
-                                <!-- <li>response = fetch(</li>
-                                <ul type="none"> -->
-                                    <!-- <li>https://orange-ballon.herokuapp.com/signup,</li>
-                                    <li>{</li>
-                                    <ul type="none">
-                                        <li>POST,</li>
-                                        <li>headers: { Content-Type: application/json },</li>
-                                        <li>body:</li>
-                                        <li>{</li>
-                                            <ul type="none">
-                                                <li>"username": "fooi",</li>
-                                                <li>"email": "fooi@1.com",</li>
-                                                <li>"password": "12345678"</li>
-                                            </ul>
-                                        <li>}</li>
-                                    </ul>
-                                    <li>}</li> -->
-                                <!-- </ul>
-                                <li>)</li> -->
-                                <!-- <li>Ver: 1.0</li>
-                            </ul> -->
-                        </div>
-                        <!-- <div class="other-details">
-                            this is login api
-                        </div> -->
-                    </div>
-
-                    <div class="col-6 eg">
-                        <div class="head">example</div>
-                        <div class="format">
-                            <ul type="none">
-                                <!-- <li><label class="emphasize">https://orange-ballon.herokuapp.com/signup</label></li> -->
-                                <li><label class="emphasize"><%= document.host + '/' + document.route %></label></li>
-                                <% if(document.token === 'required') { %><li>Authorization: Bearer $token</li><% } %>
-                                <% if(document.headers !== '-') { %>
-                                    <li><%= document.headers %></li>
-                                    <li>{</li>
-                                    <ul type="none">
-                                        <!-- <li><label class="emphasize">"username"</label>: "fooi",</li>
-                                        <li><label class="emphasize">"email"</label>: "fooi@1.com",</li>
-                                        <li><label class="emphasize">"password"</label>: "12345678"</li> -->
-                                        <!-- <% // for (const property in document.body) { %> -->
-                                        <% for (let i=0; i<bodyLen;) { %>
-                                            <!-- console.log(`${property}: ${object[property]}`); -->
-                                            <!-- <li><label class="emphasize">"<%= // property %>"</label>: "<%= // document.body[property] %>",</li> -->
-                                            <li><label class="emphasize">"<%= bodyKeys[i] %>"</label>: "<%= document.body[bodyKeys[i++]] %>"<%= i<bodyLen ? ',' : '' %></li>
-                                            <%= // i<bodyLen-1 ? bodyKeys[i]+', ' : bodyKeys[i] %>
-                                            <%= // i<bodyLen-1 ? document.body[bodyKeys[i]]+`",` : document.body[bodyKeys[i]]+`"` %>
-                                        <% } %>
-                                    </ul>
-                                    <li>}</li>
+                <div class="col-6 api">
+                    <div class="division"><%= document.division %></div>
+                    <div class="components">
+                        <table>
+                            <% let bodyKeys, bodyLen; const components = Object.keys(document); components.forEach(component => { if(component !== '_id' && component !== 'division' && component !== 'route') { %>
+                                <% if(component === 'module' || component === 'method') { %>
+                                    <tr>
+                                        <td><%= component %></td>
+                                        <td><label class="emphasize-<%= component %>"><%= document[component] %></label></td>
+                                    </tr>
+                                <% } else if(component === 'body') { %>
+                                    <tr>
+                                        <td><%= component %></td>
+                                        <td>
+                                            <% if(document[component] !== '-') { bodyKeys = Object.keys(document[component]); bodyLen = bodyKeys.length; for (let i=0; i<bodyLen;) { %>
+                                                <%= bodyKeys[i++] %><%= i<bodyLen ? ',' : '' %>
+                                            <% } } else { %><%= document[component] %><% } %>
+                                        </td>
+                                    </tr>
+                                <% } else { %>
+                                    <tr>
+                                        <td><%= component %></td>
+                                        <td><%= document[component] %></td>
+                                    </tr>
                                 <% } %>
-                            </ul>
-                        </div>
+                            <% } }); %>
+                        </table>
                     </div>
-
-                    <!-- <div class="col-6 box"> -->
-                    <!-- <div class="col-4 response">
-                        <div class="row toolbar">
-                            <div class="col-3 left">
-                                <span class="circle red"></span>&nbsp;
-                                <span class="circle orange"></span>&nbsp;
-                                <span class="circle green"></span>
-                            </div>
-                            <div class="col-6 mid">response</div>
-                            <div class="col-3 right">&lt; &gt;</div>
-                        </div>
-                        <div class="data"> -->
-                        <!-- <div class="row content"> -->
-                            <!-- alsdkjabds
-                        </div>
-                    </div> -->
-
                 </div>
-            <% }); } else { %><h4><%= documentation %></h4><% } %>
-        </div>
 
-        <!-- <div class="container box"> -->
-        <!-- <div class="box"> -->
-            <!-- <div class="row toolbar">
-                <div class="col-3 left">
-                    <span class="circle red"></span>&nbsp;
-                    <span class="circle orange"></span>&nbsp;
-                    <span class="circle green"></span>
+                <div class="col-6 eg">
+                    <div class="head">example</div>
+                    <div class="format">
+                        <ul type="none">
+                            <li><label class="emphasize"><%= document.host + '/' + document.route %></label></li>
+                            <% if(document.token === 'required') { %><li>Authorization: Bearer $token</li><% } %>
+                            <% if(document.headers !== '-') { %>
+                                <li><%= document.headers %></li>
+                                <li>{</li>
+                                <ul type="none">
+                                    <% for (let i=0; i<bodyLen;) { %>
+                                        <li><label class="emphasize">"<%= bodyKeys[i] %>"</label>: "<%= document.body[bodyKeys[i++]] %>"<%= i<bodyLen ? ',' : '' %></li>
+                                    <% } %>
+                                </ul>
+                                <li>}</li>
+                            <% } %>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-6 mid">result</div>
-                <div class="col-3 right">&lt; &gt;</div>
-            </div> -->
-            <!-- <hr> -->
-            <!-- <div class="content"> -->
-            <!-- <div class="row content"> -->
-                <!-- alsdkjabds
+
             </div>
-        </div> -->
-    <!-- </center> -->
-
+        <% }); } else { %><h4><%= documentation %></h4><% } %>
+    </div>
 </section>
 

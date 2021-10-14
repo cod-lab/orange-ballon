@@ -53,7 +53,7 @@ error_logs
 # !backend/some\ condns.txt
 
 updates.txt
-backend/new changes.txt
+# backend/new changes.txt
 
 !frontend/assets/**
 # frontend/assets/*.ini

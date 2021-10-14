@@ -1,36 +1,4 @@
-/* * { border: 1px solid; } */
-
 header {
     border-bottom: 1px solid;
 }
-/* header .container-fluid .row {
-    padding-left: 11%;
-    padding-right: 7%;
-    margin-top: 2.5%;
-}
-
-@font-face {
-    font-family: brandFont;
-    src: url('/fonts/StickNoBills-VariableFont_wght.TTF');
-}
-header .container-fluid .row .brand { */
-    /* display: initial; */
-    /* text-transform: uppercase;
-    font-weight: bold;
-    font-family: brandFont;
-    letter-spacing: 5px;
-    font-size: 20px; */
-    /* text-align: center; */
-/* }
-header .container-fluid .row .handles {
-    float: right;
-    margin-left: auto;
-    word-spacing: 20px;
-}
-header .container-fluid .row .handles img {
-    width: 50px;
-}
-header .container-fluid .row .handles img:hover {
-    cursor: pointer;
-} */
 

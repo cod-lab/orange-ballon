@@ -10,7 +10,6 @@ router
 
     // view any particular product as guest
     .get('/:pcode([a-z0-9_-]{6,15})',getProductApi)
-    // .get('/:pcode((?!documentation)[a-z0-9_-]{6,15})',getProductApi)     // it wont include word 'documentation'
 
     // get product consolidated rating
     .get('/productrating/:pid',getProductRatingApi)
@@ -19,7 +18,6 @@ router
     .get('/productreviews/:pid',getProductReviewsApi)
 
     // get access to dir 'images'
-    // .use('/images',express.static('images'))
     .use('/images',express.static('backend/images'))
     // eg. http://localhost:5000/images/products/product1.jpg
 

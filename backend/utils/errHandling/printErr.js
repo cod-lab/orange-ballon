@@ -6,7 +6,6 @@ export const printErrUtility = (err, req, res, next) => {
         statusCode: err.statusCode || 500
     };
 
-    // const workingEnv = process.env.WORK_ENV;
     const { WORK_ENV:workingEnv } = process.env;
 
     if(workingEnv === 'prod') {

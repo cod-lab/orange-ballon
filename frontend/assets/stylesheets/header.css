@@ -9,13 +9,11 @@ header .container-fluid .row {
     src: url('/fonts/StickNoBills-VariableFont_wght.ttf');
 }
 header .container-fluid .row .brand {
-    /* display: initial; */
     text-transform: uppercase;
     font-weight: bold;
     font-family: brandFont;
     letter-spacing: 5px;
     font-size: 20px;
-    /* text-align: center; */
 }
 header .container-fluid .row .handles {
     float: right;

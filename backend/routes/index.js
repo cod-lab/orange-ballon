@@ -30,9 +30,8 @@ router.use('/profile',validateTokenUtility,profileRoute);
 // common - admin/user
 router.use('/common',validateTokenUtility,commonRoute);
 
+// 'get requests' access to public
 router.use('/',publicRoute);
-
-// router.get('/docs', (_, res) => res.render('documentation'));
 
 // for invalid urls
 router.all('*', req => {
