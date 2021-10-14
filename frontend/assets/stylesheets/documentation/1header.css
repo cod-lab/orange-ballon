@@ -1,0 +1,90 @@
+header {
+    height: 10vh;
+    /* background-color: rgb(255, 123, 0); */
+    border-bottom: 1px solid;
+    /* filter: drop-shadow(3px 1px 6px #000000); */
+    /* position: fixed; */
+    /* color: white; */
+    /* vertical-align: text-bottom; */
+    /* align-self: flex-end; */
+    /* background-image: url("/graphics/backgrounds/main/k.jpg"); */
+    /* background-size: cover; */
+    /* background-size: 100%; */
+    /* background-position: bottom -90vh;    default for bottom left */
+    /* background-position: left bottom 9.75vh; */
+    /* filter: grayscale(20%); */
+    /* filter: hue-rotate(348deg) grayscale(20%); */
+    /* background-color: rgb(238, 238, 238); */
+}
+
+header .row {
+    margin-top: 2.5%;
+    /* vertical-align: bottom; */
+    /* width: 50%; */
+    /* text-align: center; */
+    /* margin: auto; */
+    /* float: right; */
+    /* font-size: 20px; */
+    /* width: fit-content; */
+    /* margin: 0; */
+    margin-right: 0;
+    /* padding: 0; */
+    /* line-height: 10vh; */
+    /* text-transform: uppercase; */
+}
+
+/* header div, img { border: 1px solid; } */
+
+@font-face {
+    font-family: brandFont;
+    src: url('/fonts/StickNoBills-VariableFont_wght.TTF');
+}
+header .brand {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: brandFont;
+    /* font-stretch: expanded; */
+    letter-spacing: 5px;
+    /* word-spacing: 1px; */
+    /* color: white; */
+    font-size: 20px;
+    text-align: center;
+}
+
+/* @font-face {
+    font-family: btnsFont;
+    src: url('/fonts/RobotoMono-VariableFont_wght.TTF');
+} */
+header .handles {
+    /* font-family: btnsFont; */
+    /* word-spacing: 10px; */
+    text-align: right;
+    padding: 0;
+}
+
+/* header .btns label { color: transparent; } */
+/* header .btns .handles { float: center; } */
+header .handles img { width: 50px; }
+
+/* header .btns a { */
+    /* color: white; */
+    /* color: black; */
+    /* text-decoration: none; */
+    /* line-height: 15vh; */
+    /* align-self: flex-end; */
+    /* text-transform: uppercase; */
+    /* padding: 0;
+    margin: 0; */
+/* } */
+
+/* header .btns a:hover { */
+    /* color: lightgray; */
+    /* color: rgb(44, 73, 201); */
+    /* color: rgb(61, 91, 224); */
+    /* color: white;
+    text-decoration: none; */
+    /* text-shadow: 1px 1px 2px #000000; */
+/* } */
+
+/* header .btns a:active { color: rgb(0, 0, 0); } */
+

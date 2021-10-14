@@ -1,33 +1,23 @@
-/* * { border: 1px solid; } */
-
-header {
-    border-bottom: 1px solid white;
-    background-image: url("/graphics/backgrounds/index/main/k.jpg");
-    background-size: 100%;
-    background-position: left bottom 9.75vh;
-    filter: hue-rotate(348deg) grayscale(20%);
-}
-/* header .container-fluid .row {
+header .container-fluid .row {
     padding-left: 11%;
-    padding-right: 7%;
+    padding-right: 6%;
     margin-top: 2.5%;
 }
 
 @font-face {
     font-family: brandFont;
     src: url('/fonts/StickNoBills-VariableFont_wght.TTF');
-} */
+}
 header .container-fluid .row .brand {
     /* display: initial; */
-    /* text-transform: uppercase;
+    text-transform: uppercase;
     font-weight: bold;
     font-family: brandFont;
     letter-spacing: 5px;
-    font-size: 20px; */
+    font-size: 20px;
     /* text-align: center; */
-    color: white;
 }
-/* header .container-fluid .row .handles {
+header .container-fluid .row .handles {
     float: right;
     margin-left: auto;
     word-spacing: 20px;
@@ -37,5 +27,5 @@ header .container-fluid .row .handles img {
 }
 header .container-fluid .row .handles img:hover {
     cursor: pointer;
-} */
+}
 

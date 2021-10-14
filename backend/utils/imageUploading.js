@@ -7,9 +7,9 @@ import { generateErrUtility } from './errHandling/generateErr.js';
 const fileFilter = (req, { mimetype }, cb) => {
     // const { mimetype } = file;
     // if(mimetype === 'image/jpeg' || mimetype === 'image/jpg' || mimetype === 'image/png' || mimetype === 'image/bmp')
-    const validImg = /^image\/(jpeg|jpg|png|bmp|ico)$/;
+    const validImg = /^image\/(jpg|jpeg|png|bmp|ico)$/;
     if(validImg.test(mimetype)) return cb(null, true);
-    cb(new generateErrUtility('Allowed only JPG, JPEG, PNG, BMP formats!',422), false);
+    cb(new generateErrUtility('Allowed only JPG, JPEG, PNG, BMP, ICO formats!',422), false);
 };
 
 // const limits = {
