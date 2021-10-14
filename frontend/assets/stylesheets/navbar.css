@@ -19,7 +19,7 @@
 }
 @font-face {
     font-family: navbarFont;
-    src: url('/fonts/RobotoMono-VariableFont_wght.TTF');
+    src: url('/fonts/RobotoMono-VariableFont_wght.ttf');
 }
 #navbar .container-fluid .row .btns {
     margin-left: auto;
@@ -47,7 +47,7 @@
 }
 #navbar .container-fluid .row .btns a:hover {
     text-decoration: none;
-    color: rgb(107, 106, 106);
+    /* color: rgb(107, 106, 106); */
     transition: 0.4s;
 }
 #navbar .container-fluid .row .btns a:active {

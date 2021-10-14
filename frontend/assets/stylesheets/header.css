@@ -6,7 +6,7 @@ header .container-fluid .row {
 
 @font-face {
     font-family: brandFont;
-    src: url('/fonts/StickNoBills-VariableFont_wght.TTF');
+    src: url('/fonts/StickNoBills-VariableFont_wght.ttf');
 }
 header .container-fluid .row .brand {
     /* display: initial; */

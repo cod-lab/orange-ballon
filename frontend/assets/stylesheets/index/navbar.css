@@ -48,13 +48,13 @@
     padding-left: 13px;
     padding-right: 13px; */
     /* float: right; */
-/* }
+/* } */
 #navbar .container-fluid .row .btns a:hover {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: rgb(107, 106, 106);
-    transition: 0.4s;
+    /* transition: 0.4s; */
 }
-#navbar .container-fluid .row .btns a:active {
+/* #navbar .container-fluid .row .btns a:active {
     color: black;
 } */
 
