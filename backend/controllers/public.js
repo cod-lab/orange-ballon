@@ -29,7 +29,7 @@ export const getProductRatingController = tryCatchUtility(async (req, res) => {
 });
 
 export const getDocumentationController = tryCatchUtility(async (req, res) => {
-    const response = await docModel.find().lean();
+    const response = await docModel.find().sort({ _id: 1 }).lean();
     res.status(200).render('documentation', { documentation: response.length ? response : 'No document found!' });
 });
 
